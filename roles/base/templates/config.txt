@@ -1,0 +1,14 @@
+# Set GPU memory to 16MB since these are headless
+gpu_mem_256=16
+gpu_mem_512=16
+gpu_mem_1024=16
+
+{% set _arm_freq = 1000 if ansible_memtotal_mb >= 512 else 900 %}
+{% set _sdram_freq = 500 if ansible_memtotal_mb >= 512 else 450 %}
+{% set _core_freq = 500 if ansible_memtotal_mb >= 512 else 333 %}
+
+# Modest overclock
+arm_freq={{_arm_freq}}
+core_freq={{_core_freq}}
+sdram_freq={{_sdram_freq}}
+over_voltage=2

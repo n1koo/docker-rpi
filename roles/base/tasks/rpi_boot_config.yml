@@ -1,0 +1,5 @@
+- name: Configure boot params
+  template:
+   src: config.txt
+   dest: /boot/config.txt
+  notify: restart pi

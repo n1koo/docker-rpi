@@ -7,3 +7,6 @@
 
 - name: update tzdata
   command: dpkg-reconfigure --frontend noninteractive tzdata
+
+- name: restart pi
+  command: shutdown -r now "Reboot for config.txt modification"

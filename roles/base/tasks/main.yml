@@ -1,5 +1,6 @@
 ---
 - include: ansible_deps.yml tags=base,dependencies
+- include: rpi_boot_config.yml tags=base,rpi
 - include: hostname.yml tags=base
 - include: swapfile.yml tags=base,swap
 - include: packages.yml tags=base,dependencies

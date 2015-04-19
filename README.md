@@ -2,9 +2,12 @@
 
 Bootstrap RPI nodes with HypriotOS ( http://blog.hypriot.com/ ) to a sane baseconfig ready for Docker usage.
 
+Currently nothing is really tied to HypriotOS, eg. this could very well be used with basic raspbian.
+
 ## Currently does the following 
 
 - Ansible dependencies
+- Set GPU mem to 16M and overclock to 900/1000Mhz (rpi1 vs rpi2)
 - Set hostname
 - Install and configure time services (ntpd + UTC tz)
 - Install pasic packages

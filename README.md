@@ -6,6 +6,7 @@ Currently nothing is really tied to HypriotOS, eg. this could very well be used 
 
 ## Currently does the following 
 
+### Base
 - Ansible dependencies
 - Set GPU mem to 16M and overclock to 900/1000Mhz (rpi1 vs rpi2)
 - Set hostname
@@ -15,6 +16,10 @@ Currently nothing is really tied to HypriotOS, eg. this could very well be used 
 - Provision a 512M swapfile
 - Add a local user for sudo access
 
+### Docker
+- Pull swarm container, join swarm
+- Install manager on docker1
+
 ## Usage
 
 1. Run `./bootstrap_python.sh` to get Python2.7 for Ansible installed (notice the hostname in script)
@@ -22,4 +27,5 @@ Currently nothing is really tied to HypriotOS, eg. this could very well be used 
 
 ## TODO
 
-- Swarm
+- Maybe dynamic swarm token. Hardcoded ansible variable for now
+- Manager side is a bit fugly

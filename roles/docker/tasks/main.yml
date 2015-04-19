@@ -1,2 +1,2 @@
 ---
-
+- include: swarm.yml tags=docker,swarm

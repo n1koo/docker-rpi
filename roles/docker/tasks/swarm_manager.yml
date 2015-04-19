@@ -1,0 +1,11 @@
+---
+- name: get running container
+  shell: docker ps |grep swarm-manager| awk '{print $1}'
+  register: is_manager_already_running
+
+- name: Manager container
+  shell: docker run --name="swarm-manager" \
+         -p 3456:2375 \
+         -d nimblestratus/rpi-swarm manage \
+         token://{{ swarm_token }}
+  when: is_manager_already_running == ""

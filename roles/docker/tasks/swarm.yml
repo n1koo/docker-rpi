@@ -1,0 +1,18 @@
+---
+- lineinfile: 
+    dest: /etc/default/docker 
+    regexp: ^DOCKER_OPTS= 
+    line: DOCKER_OPTS="--storage-driver=overlay -D -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
+  notify: restart docker
+
+
+- name: get running container
+  shell: docker ps |grep swarm-agent| awk '{print $1}'
+  register: is_swarm_already_running
+
+- name: Join swarm
+  shell: docker run --name="swarm-agent" \
+         -d nimblestratus/rpi-swarm join \
+         --addr={{ ansible_default_ipv4.address }}:2375 \
+         token://{{ swarm_token }}
+  when: is_swarm_already_running == ""

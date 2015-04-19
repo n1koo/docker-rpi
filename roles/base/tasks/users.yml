@@ -15,3 +15,11 @@
     user='{{ item.name }}'
     key='{{lookup('file', item.public_key)}}'
   with_items: users
+  
+- name: setup sudo
+  lineinfile: >
+    dest=/etc/sudoers
+    state=present
+    regexp='^%sudo ALL\='
+    line='%sudo ALL=(ALL) NOPASSWD:ALL'
+    validate='visudo -cf %s'

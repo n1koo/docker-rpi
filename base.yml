@@ -1,11 +1,18 @@
 ---
 - name: Raspberry Pi Docker bootstrap
-
   hosts: docker
   remote_user: root
-  sudo: yes
   vars_files:
     - vars/users.yml
   roles:
     - base
     - docker
+
+- name: Management node
+  hosts: management
+  sudo: yes
+  gather_facts: no
+  vars_files:
+    - roles/docker/defaults/main.yml
+  tasks:
+    - include: roles/docker/tasks/swarm_manager.yml

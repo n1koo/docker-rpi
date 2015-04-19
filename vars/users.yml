@@ -1,0 +1,5 @@
+---
+users:
+  - name: n1ko
+    password: ""
+    public_key: ssh/n1ko.pub

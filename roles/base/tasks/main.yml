@@ -1,0 +1,8 @@
+---
+- include: ansible_deps.yml tags=base,dependencies
+- include: hostname.yml tags=base
+- include: swapfile.yml tags=base,swap
+- include: packages.yml tags=base,dependencies
+- include: ntp.yml tags=base,ntp
+- include: timezone.yml tags=base,timezone
+- include: users.yml tags=base,dependencies

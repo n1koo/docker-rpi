@@ -1,0 +1,5 @@
+---
+swapfile_size: 512MB
+swapfile_swappiness: 1
+swapfile_vfs_cache_pressure: False
+swapfile_use_dd: False

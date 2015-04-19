@@ -1,0 +1,11 @@
+---
+- name: Raspberry Pi Docker bootstrap
+
+  hosts: docker
+  remote_user: root
+  sudo: yes
+  vars_files:
+    - vars/users.yml
+  roles:
+    - base
+    - docker

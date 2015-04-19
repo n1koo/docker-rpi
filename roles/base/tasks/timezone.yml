@@ -1,0 +1,4 @@
+---
+- name: set /etc/timezone to Etc/UTC
+  copy: src=etc/timezone dest=/etc/timezone
+  notify: update tzdata

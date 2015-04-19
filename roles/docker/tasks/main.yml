@@ -1,0 +1,2 @@
+---
+- include: docker1_6.yml tags=docker

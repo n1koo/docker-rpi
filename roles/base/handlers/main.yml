@@ -1,0 +1,9 @@
+---
+- name: Reload sysctl
+  command: sysctl -p
+
+- name: restart ntpd
+  service: name=ntpd state=restarted
+
+- name: update tzdata
+  command: dpkg-reconfigure --frontend noninteractive tzdata
